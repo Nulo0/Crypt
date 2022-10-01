@@ -7,7 +7,7 @@ ALPHABET = 'abcdefghijklmnopqrstuvwyzàáãâéêóôõíúçABCDEFGHIJKLMNOPQRS
 CryptMode = 1
 DecryptMode = CryptMode * -1
 
-# O diciionário usado, de acordo com a GNU Public License (https://www.ime.usp.br/~ueda/br.ispell/gpl) é ofertado pelo Dicinonário br.ispell(https://www.ime.usp.br/~ueda/br.ispell/), todos os créditos, por esse trabalho incrível, a eles.
+# The dictionary used, according to the GNU Public License (https://www.ime.usp.br/~ueda/br.ispell/gpl) is provided by the Dicinonário br.ispell(https://www.ime.usp.br/~ueda/br.ispell/), all credits, for this incredible work, to them.
 
 dictonary = pd.read_csv("https://www.ime.usp.br/~pf/dicios/br-utf8.txt", header=None) 
 dictonary.columns = ['Palavaras']
@@ -41,7 +41,7 @@ def foundKey(message):
     for i in range(maxSearchValue):
         newMessage = ''
         newMessage = decrypt(message, i)
-        newMessage = re.sub(r'[^\w\s]','',newMessage) #regex para remover pontos
+        newMessage = re.sub(r'[^\w\s]','',newMessage) #regex to remove points
         listMessage= newMessage.split(' ')
         minimalPercent = int((len(listMessage) * 75) / 100)
         for word in listMessage:
@@ -74,7 +74,7 @@ def verifyComand(command, message, key):
     if command == 'encrypt':
         print("Crypt Mode ")
         print("Crypted Message:  " + encrypt(message, key))
-        print("Chave não especificada.") if key == 0 else ""
+        print("Key not specified.") if key == 0 else ""
 
     elif command == 'decrypt':
         print("Decrypt Mode ")
@@ -87,7 +87,7 @@ def verifyComand(command, message, key):
             keyResult(message, key)
         elif increase == 'no':
             exit()
-        print("Chave não especificada.") if key == 0 else ""
+        print("Key not specified.") if key == 0 else ""
 
     elif command == "foundkey":
         key = foundKey(message)

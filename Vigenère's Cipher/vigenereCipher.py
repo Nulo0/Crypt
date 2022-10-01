@@ -69,11 +69,11 @@ def verifyComand(command, message, key):
         else:
             print("Crypt Mode: ")
             print("Crypted Message:  " + encrypt(message, key))
-            print("Chave não especificada.") if key == "" else ""
+            print("Key not specified.") if key == "" else ""
     elif command == 'decrypt':
         print("Decrypt Mode: ")
         print("Decrypted Message:  " + decrypt(message, key))
-        print("Chave não especificada.") if key == "" else ""
+        print("Key not specified.") if key == "" else ""
     elif command == 'generatekey':
         print("Generated Key: " + keyGenerator(message, mode=0))
     else:
